@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentContext.Domain", "PaymentContext.Domain", "{B608B3A1-0479-4BEE-884D-ECA662418054}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentContext.Shared", "PaymentContext.Shared", "{8297F8F2-E7FC-4B66-AC1D-0ABE1264C0A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaymentContext.Tests", "PaymentContext.Tests", "{3BFF77E3-4D6B-4376-9D5A-B8D69DE04538}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentContext.Domain", "PaymentContext.Domain\PaymentContext.Domain.csproj", "{C4D0584D-CF4B-49B2-905C-33B5BBA0672E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentContext.Shared", "PaymentContext.Shared\PaymentContext.Shared.csproj", "{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentContext.Tests", "PaymentContext.Tests\PaymentContext.Tests.csproj", "{75D42F3C-790A-4FAF-973E-337AC7C20B02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4D0584D-CF4B-49B2-905C-33B5BBA0672E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D0584D-CF4B-49B2-905C-33B5BBA0672E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D0584D-CF4B-49B2-905C-33B5BBA0672E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D0584D-CF4B-49B2-905C-33B5BBA0672E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75D42F3C-790A-4FAF-973E-337AC7C20B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D42F3C-790A-4FAF-973E-337AC7C20B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D42F3C-790A-4FAF-973E-337AC7C20B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D42F3C-790A-4FAF-973E-337AC7C20B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C4D0584D-CF4B-49B2-905C-33B5BBA0672E} = {B608B3A1-0479-4BEE-884D-ECA662418054}
+		{6322A847-D0EE-4AF7-B8CA-90FD88ED8F1F} = {8297F8F2-E7FC-4B66-AC1D-0ABE1264C0A8}
+		{75D42F3C-790A-4FAF-973E-337AC7C20B02} = {3BFF77E3-4D6B-4376-9D5A-B8D69DE04538}
+	EndGlobalSection
+EndGlobal
