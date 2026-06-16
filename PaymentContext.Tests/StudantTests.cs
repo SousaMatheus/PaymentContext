@@ -1,4 +1,5 @@
-﻿using PaymentContext.Domain;
+﻿using PaymentContext.Domain.Entities;
+using PaymentContext.Domain.ValueObjects;
 
 namespace PaymentContext.Tests;
 
@@ -9,7 +10,10 @@ public sealed class StudantTests
     public void AdicionarSubscription()
     {
         var subscription = new Subscription(null);
-        var studant = new Studant("Matheus", "Sousa", "matheus@gmail.com", "12345678910", "Rua 01");
-        studant.AddSubscription(subscription);  
+        var name = new Name("Matheus", "Sousa");
+        var document = new Document("12345678910", Domain.Enuns.EDocumentType.CPF);
+
+        var studant = new Studant(name, "matheus@gmail.com", document, "Rua 01");
+        studant.AddSubscription(subscription);
     }
 }

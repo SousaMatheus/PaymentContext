@@ -1,4 +1,4 @@
-﻿namespace PaymentContext.Domain;
+﻿namespace PaymentContext.Domain.Entities;
 
 public class Subscription
 {
@@ -17,7 +17,7 @@ public class Subscription
     public DateTime LastUpdate { get; private set; }
     public DateTime? ExpireDate { get; private set; }
     public bool IsActive { get; private set; }
-    public string Address { get; private set; }
+    public string Address { get; private set; } = string.Empty;
 
     public IReadOnlyCollection<Payment> Payments
     {
