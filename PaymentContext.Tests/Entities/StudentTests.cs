@@ -1,7 +1,7 @@
 ﻿namespace PaymentContext.Tests.Entities;
 
 [TestClass]
-public class StudantTests
+public class StudentTests
 {
     [TestMethod]
     public void TestMethod1()

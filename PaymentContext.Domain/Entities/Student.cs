@@ -3,22 +3,24 @@ using PaymentContext.Shared.Entities;
 
 namespace PaymentContext.Domain.Entities;
 
-public class Studant : Entity
+public class Student : Entity
 {
-    public Studant(Name name, string email, Document document, string adress)
+    public Student(Name name, Email email, Document document, Address address)
     {
         Name = name;
         Email = email;
         Document = document;
-        Adress = adress;
+        Address = address;
         _subscriptions = new List<Subscription>();
+        
+        AddNotifications(name, email, document, address);
     }
 
     private IList<Subscription> _subscriptions;
     public Name Name { get; private set; }
-    public string Email { get; private set; }
+    public Email Email { get; private set; }
     public Document Document { get; private set; }
-    public string Adress { get; private set; }
+    public Address Address { get; private set; }
 
     public IReadOnlyCollection<Subscription> Subscriptions
     {
