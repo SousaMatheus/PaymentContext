@@ -4,15 +4,27 @@ namespace PaymentContext.Domain.ValueObjects;
 
 public class Name : ValueObject
 {
-    public string FirstName { get; private set; } = string.Empty;
-    public string LastName { get; private set; } = string.Empty;
+    public string FirstName { get; }
+    public string LastName { get; }
 
     public Name(string firstName, string lastName)
     {
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentException("O nome não pode ser nulo");
+
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentException("O sobrenome não pode ser nulo");
+
+        firstName = firstName.Trim();
+        lastName = lastName.Trim();
+
         if (firstName.Length < 3)
-            throw new Exception("O nome deve conter mais de 3 caracteres");
+            throw new ArgumentException("O nome deve conter pelo menos 3 caracteres");
 
         if (lastName.Length < 3)
-            throw new Exception("O sobrenome deve conter mais de 3 caracteres");
+            throw new ArgumentException("O sobrenome deve conter pelo menos 3 caracteres");
+
+        FirstName = firstName;
+        LastName = lastName;
     }
 }
