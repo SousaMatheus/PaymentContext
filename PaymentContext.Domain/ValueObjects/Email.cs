@@ -16,6 +16,6 @@ public class Email : ValueObject
         if (adress.Length < 5)
             throw new ArgumentException("O email deve conter pelo menos 5 caracteres");
 
-
+        Adress = adress;
     }
 }
