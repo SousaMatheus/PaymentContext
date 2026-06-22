@@ -8,13 +8,14 @@ public class Subscription : Entity
 {
     private List<Payment> _payments;
 
-    public Subscription(DateTime? expireDate)
+    public Subscription(DateTime? expireDate, Adress adress)
     {
         CreateDate = DateTime.UtcNow;
         LastUpdate = DateTime.UtcNow;
         IsActive = true;
         ExpireDate = expireDate;
         _payments = new List<Payment>();
+        Address = adress;
     }
 
     public DateTime CreateDate { get; private set; }
