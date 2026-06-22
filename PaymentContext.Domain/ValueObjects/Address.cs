@@ -5,7 +5,7 @@ namespace PaymentContext.Domain.ValueObjects;
 
 public class Address : ValueObject
 {
-    public Adress(string street, string number, string neighborhood, string city, string state, string country, string zipCode)
+    public Address(string street, string number, string neighborhood, string city, string state, string country, string zipCode)
     {
         Street = street;
         Number = number;
@@ -16,7 +16,7 @@ public class Address : ValueObject
         ZipCode = zipCode;
 
         //exemplo de contract
-        AddNotifications(new Contract<Adress>()
+        AddNotifications(new Contract<Address>()
             .Requires()
             .IsNotNullOrWhiteSpace(Street, "Adress.Street", "Rua é obrigatório"));
     }

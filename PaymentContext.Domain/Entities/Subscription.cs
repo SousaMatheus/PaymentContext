@@ -8,7 +8,7 @@ public class Subscription : Entity
 {
     private List<Payment> _payments;
 
-    public Subscription(DateTime? expireDate, Adress adress)
+    public Subscription(DateTime? expireDate, Address adress)
     {
         CreateDate = DateTime.UtcNow;
         LastUpdate = DateTime.UtcNow;
@@ -22,7 +22,7 @@ public class Subscription : Entity
     public DateTime LastUpdate { get; private set; }
     public DateTime? ExpireDate { get; private set; }
     public bool IsActive { get; private set; }
-    public Adress Address { get; private set; }
+    public Address Address { get; private set; }
 
     public IReadOnlyCollection<Payment> Payments
     {

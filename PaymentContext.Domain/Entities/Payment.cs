@@ -1,10 +1,12 @@
-﻿using PaymentContext.Domain.ValueObjects;
+﻿using Flunt.Notifications;
+using Flunt.Validations;
+using PaymentContext.Domain.ValueObjects;
 
 namespace PaymentContext.Domain.Entities;
 
-public abstract class Payment
+public abstract class Payment : Notifiable<Notification>
 {
-    protected Payment(DateTime expireDate, decimal total, decimal totalPaid, Document document, Adress adress,
+    protected Payment(DateTime expireDate, decimal total, decimal totalPaid, Document document, Address adress,
         string owner, Email email)
     {
         Number = Guid.NewGuid().ToString("N").Substring(0, 12).ToUpper();
@@ -12,7 +14,7 @@ public abstract class Payment
         Total = total;
         TotalPaid = totalPaid;
         Document = document;
-        Adress = adress;
+        Address = adress;
         Owner = owner;
         Email = email;
 
@@ -28,7 +30,7 @@ public abstract class Payment
     public decimal Total { get; private set; }
     public decimal TotalPaid { get; private set; }
     public Document Document { get; private set; }
-    public Adress Adress { get; private set; }
+    public Address Address { get; private set; }
     public string Owner { get; private set; }
-    public string Email { get; private set; }
+    public Email Email { get; private set; }
 }
