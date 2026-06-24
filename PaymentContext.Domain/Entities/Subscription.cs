@@ -31,7 +31,6 @@ public class Subscription : Entity
 
     public void AddPayment(Payment payment)
     {
-
         AddNotifications(new Contract<Subscription>()
         .Requires()
         .IsGreaterThan(DateTime.Now, payment.PaymentDate, "Subscription.Payments", "A data do pagamento deve ser futura"));

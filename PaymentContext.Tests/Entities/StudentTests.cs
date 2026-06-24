@@ -12,8 +12,9 @@ public sealed class StudentTests
     private static Address NewAddress() =>
         new Address("Rua 01", "100", "Jd. Europa", "Sorocaba", "SP", "Brasil", "99999999");
     private static Subscription NewSubscription() => new Subscription(null, NewAddress());
-    
-    
+    private static BoletoPayment NewBoletoPayment() =>
+        new BoletoPayment(DateTime.Now.AddDays(3), 1000.0m, 1000.0m, NewDocument(), NewAddress(), "Matheus", NewEmail(), "12341234", "12345678910");
+
     [TestMethod]
     public void AddSubscription_ShouldReturnSuccess()
     {
@@ -25,10 +26,10 @@ public sealed class StudentTests
 
         var student = new Student(name, email, document, address);
         student.AddSubscription(subscription);
-        
+
         Assert.IsTrue(student.IsValid);
     }
-    
+
     [TestMethod]
     public void AddTwoSubscriptions_ShouldReturnError()
     {
@@ -41,7 +42,39 @@ public sealed class StudentTests
         var student = new Student(name, email, document, address);
         student.AddSubscription(subscription);
         student.AddSubscription(subscription);
-        
+
         Assert.IsFalse(student.IsValid);
+    }
+
+    [TestMethod]
+    public void AddSubscriptionsWithNoPayment_ShouldReturnError()
+    {
+        var name = NewName();
+        var document = NewDocument();
+        var email = NewEmail();
+        var address = NewAddress();
+        var subscription = NewSubscription();
+
+        var student = new Student(name, email, document, address);
+        student.AddSubscription(subscription);
+
+        Assert.IsFalse(student.IsValid);
+    }
+
+    [TestMethod]
+    public void AddSubscriptionsWithBoletoPayment_ShouldReturnSuccess()
+    {
+        var name = NewName();
+        var document = NewDocument();
+        var email = NewEmail();
+        var address = NewAddress();
+        var subscription = NewSubscription();
+        var boletoPayment = NewBoletoPayment();
+        subscription.AddPayment(boletoPayment);
+
+        var student = new Student(name, email, document, address);
+        student.AddSubscription(subscription);
+
+        Assert.IsTrue(student.IsValid);
     }
 }
