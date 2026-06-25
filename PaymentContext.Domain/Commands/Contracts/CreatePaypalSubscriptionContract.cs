@@ -8,7 +8,7 @@ public class CreatePaypalSubscriptionContract : Contract<CreatePayPalSubscriptio
     {
         Requires()
         .IsNotNullOrWhiteSpace(payPalSubscriptionCommand.FirstName, "FirstName", "Nome não pode ser vazio")
-        .IsNotNullOrWhiteSpace(payPalSubscriptionCommand.Document, "FirstName", "Documento não pode ser vazio")
+        .IsNotNullOrWhiteSpace(payPalSubscriptionCommand.Document, "Document", "Documento não pode ser vazio")
         .IsNotNullOrWhiteSpace(payPalSubscriptionCommand.Email, "Email", "Nome não pode ser vazio")
         .IsEmail(payPalSubscriptionCommand.Email, "Email", "Forneça um e-mail válido");
     }

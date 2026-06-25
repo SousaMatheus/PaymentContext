@@ -8,7 +8,7 @@ public class CreateBoletoSubscriptionContract : Contract<CreateBoletoSubscriptio
     {
         Requires()
         .IsNotNullOrWhiteSpace(boletoSubsCommand.FirstName, "FirstName", "Nome não pode ser vazio")
-        .IsNotNullOrWhiteSpace(boletoSubsCommand.Document, "FirstName", "Documento não pode ser vazio")
+        .IsNotNullOrWhiteSpace(boletoSubsCommand.Document, "Document", "Documento não pode ser vazio")
         .IsNotNullOrWhiteSpace(boletoSubsCommand.Email, "Email", "Nome não pode ser vazio")
         .IsEmail(boletoSubsCommand.Email, "Email", "Forneça um e-mail válido");
     }
