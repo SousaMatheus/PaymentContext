@@ -1,10 +1,11 @@
 using Flunt.Notifications;
+using PaymentContext.Domain.Commands.Contracts;
 using PaymentContext.Domain.Enuns;
 using PaymentContext.Shared.Commands;
 
 namespace PaymentContext.Domain.Commands;
 
-public class CreateBoleroSubscriptionCommand : Notifiable<Notification>, ICommand
+public class CreateBoletoSubscriptionCommand : Notifiable<Notification>, ICommand
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
@@ -33,6 +34,6 @@ public class CreateBoleroSubscriptionCommand : Notifiable<Notification>, IComman
 
     public void Validate()
     {
-        throw new NotImplementedException();
+        AddNotifications(new CreateBoletoSubscriptionContract(this));
     }
 }

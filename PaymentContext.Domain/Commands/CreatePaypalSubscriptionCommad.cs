@@ -1,4 +1,5 @@
 using Flunt.Notifications;
+using PaymentContext.Domain.Commands.Contracts;
 using PaymentContext.Domain.Enuns;
 using PaymentContext.Shared.Commands;
 
@@ -32,6 +33,6 @@ public class CreatePayPalSubscriptionCommand : Notifiable<Notification>, IComman
 
     public void Validate()
     {
-        throw new NotImplementedException();
+        AddNotifications(new CreatePaypalSubscriptionContract(this));
     }
 }

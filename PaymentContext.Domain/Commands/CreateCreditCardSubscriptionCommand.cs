@@ -1,4 +1,5 @@
 using Flunt.Notifications;
+using PaymentContext.Domain.Commands.Contracts;
 using PaymentContext.Domain.Enuns;
 using PaymentContext.Shared.Commands;
 
@@ -34,6 +35,6 @@ public class CreateCreditCardSubscriptionCommand : Notifiable<Notification>, ICo
 
     public void Validate()
     {
-        throw new NotImplementedException();
+        AddNotifications(new CreateCreditCardSubscriptionContract(this));
     }
 }
