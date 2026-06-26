@@ -27,4 +27,6 @@ public class Name : ValueObject
         FirstName = firstName;
         LastName = lastName;
     }
+    
+    override public string ToString() => FirstName + " " + LastName;
 }
