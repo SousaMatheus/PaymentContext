@@ -9,7 +9,7 @@ using PaymentContext.Shared.Handlers;
 
 namespace PaymentContext.Domain.Handlers;
 
-public class SubscriptionHandler : Notifiable<Notification>, 
+public class SubscriptionHandler : Notifiable<Notification>,
     IHandler<CreateBoletoSubscriptionCommand>,
     IHandler<CreatePayPalSubscriptionCommand>,
     IHandler<CreateCreditCardSubscriptionCommand>
@@ -67,13 +67,16 @@ public class SubscriptionHandler : Notifiable<Notification>,
 
         subscription.AddPayment(payment);
         student.AddSubscription(subscription);
-        
+
         AddNotifications(name, document, email, address, student, payment, subscription);
-        
+
+        if (!IsValid)
+            return new CommandResult(false, "Não foi possível realizar sua assinatura");
+
         _studantRepository.CreateSubscription(student);
-        
+
         _emailService.SendEmail(student.Name.ToString(), "Assinatura realizada com sucesso", "Seja bem-vindo");
-        
+
         return new CommandResult(true, "Assinatura realizada com sucesso");
     }
 
@@ -120,13 +123,13 @@ public class SubscriptionHandler : Notifiable<Notification>,
 
         subscription.AddPayment(payment);
         student.AddSubscription(subscription);
-        
+
         AddNotifications(name, document, email, address, student, payment, subscription);
-        
+
         _studantRepository.CreateSubscription(student);
-        
+
         _emailService.SendEmail(student.Name.ToString(), "Assinatura realizada com sucesso", "Seja bem-vindo");
-        
+
         return new CommandResult(true, "Assinatura realizada com sucesso");
     }
 
@@ -175,13 +178,13 @@ public class SubscriptionHandler : Notifiable<Notification>,
 
         subscription.AddPayment(payment);
         student.AddSubscription(subscription);
-        
+
         AddNotifications(name, document, email, address, student, payment, subscription);
-        
+
         _studantRepository.CreateSubscription(student);
-        
+
         _emailService.SendEmail(student.Name.ToString(), "Assinatura realizada com sucesso", "Seja bem-vindo");
-        
+
         return new CommandResult(true, "Assinatura realizada com sucesso");
     }
 }
