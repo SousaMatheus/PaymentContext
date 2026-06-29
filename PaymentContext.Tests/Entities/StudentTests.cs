@@ -23,10 +23,11 @@ public sealed class StudentTests
         var email = NewEmail();
         var address = NewAddress();
         var subscription = NewSubscription();
+        subscription.AddPayment(NewBoletoPayment());
 
         var student = new Student(name, email, document, address);
         student.AddSubscription(subscription);
-
+        
         Assert.IsTrue(student.IsValid);
     }
 
